@@ -26,7 +26,7 @@ public class TestService {
      * @param data
      * @return
      */
-    public String send(String topic, String data){
+    public void send(String topic, String data){
         String key = UUID.randomUUID().toString();
         ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(topic, key, data);
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
@@ -42,6 +42,5 @@ public class TestService {
                 System.out.println(producerRecord.toString() + ",偏移量=" + recordMetadata.offset() + ",分区=" + recordMetadata.partition());
             }
         });
-        return "success";
     }
 }

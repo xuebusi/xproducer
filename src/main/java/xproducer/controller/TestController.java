@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import xproducer.common.result.ResultVo;
+import xproducer.common.result.ViewHint;
 import xproducer.service.TestService;
 
 /**
@@ -31,16 +33,15 @@ public class TestController {
      */
     @RequestMapping(value = "/send", method = RequestMethod.GET)
     @ResponseBody
-    public JSONObject test(@RequestParam(value = "data") String data){
-        JSONObject jsonObject = new JSONObject();
-        String result;
+    public ResultVo test(@RequestParam(value = "data") String data){
+        ResultVo resultVo;
         try {
-            result = testService.send(topic, data);
+            testService.send(topic, data);
         } catch (Exception e) {
-            jsonObject.put("result", e.getMessage());
-            return jsonObject;
+            resultVo = new ResultVo(ViewHint.fail);
+            return resultVo;
         }
-        jsonObject.put("result", result);
-        return jsonObject;
+        resultVo = new ResultVo(ViewHint.success);
+        return resultVo;
     }
 }
