@@ -30,12 +30,14 @@ public class ResultVo<T> {
         this.message = viewHint.getMessage();
         this.code = viewHint.getCode();
         this.data = null;
+        this.time = System.currentTimeMillis();
     }
 
     public ResultVo(ViewHint viewHint, T data) {
         this.message = viewHint.getMessage();
         this.code = viewHint.getCode();
         this.data = data;
+        this.time = System.currentTimeMillis();
     }
 
     public ResultVo(String message, int code) {
@@ -46,6 +48,7 @@ public class ResultVo<T> {
         this.message = message;
         this.code = code;
         this.data = data;
+        this.time = System.currentTimeMillis();
     }
 
     public int getCode() {
