@@ -14,6 +14,18 @@ public class ResultVo<T> {
 
     }
 
+    public ResultVo success() {
+        return new ResultVo(ViewHint.success);
+    }
+
+    public ResultVo success(T data) {
+        return new ResultVo(ViewHint.success, data);
+    }
+
+    public ResultVo fail() {
+        return new ResultVo(ViewHint.fail);
+    }
+
     public ResultVo(ViewHint viewHint) {
         this.message = viewHint.getMessage();
         this.code = viewHint.getCode();
