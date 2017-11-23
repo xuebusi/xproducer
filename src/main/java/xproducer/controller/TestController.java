@@ -1,10 +1,12 @@
 package xproducer.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import xproducer.common.result.ResultVo;
 import xproducer.common.result.ViewHint;
 import xproducer.service.TestService;
@@ -28,7 +30,7 @@ public class TestController {
 
     /**
      * 发送消息
-     * @param data 要发
+     * @param data 要发送的消息
      * @return
      */
     @RequestMapping(value = "/send", method = RequestMethod.GET)
