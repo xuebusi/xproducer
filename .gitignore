@@ -100,3 +100,5 @@ src/main/resources/templates/my/vip/
 .gitignore
 src/main/resources/static/
 src/main/resources/templates/
+/.idea/
+/xproducer.iml
