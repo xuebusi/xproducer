@@ -102,3 +102,4 @@ src/main/resources/static/
 src/main/resources/templates/
 /.idea/
 /xproducer.iml
+/LOG_PATH_IS_UNDEFINED/
